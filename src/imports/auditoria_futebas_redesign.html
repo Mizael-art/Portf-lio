@@ -1,0 +1,504 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);}
+.root{padding:1rem 0;color:var(--color-text-primary);}
+h1{font-size:18px;font-weight:500;margin-bottom:4px;color:var(--color-text-primary);}
+h2{font-size:15px;font-weight:500;margin:1.5rem 0 0.6rem;color:var(--color-text-primary);}
+h3{font-size:13px;font-weight:500;margin:0.8rem 0 0.4rem;color:var(--color-text-primary);}
+.sub{font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;}
+.tabs{display:flex;gap:4px;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:1.2rem;flex-wrap:wrap;}
+.tab{padding:6px 12px;font-size:13px;cursor:pointer;border:none;background:transparent;color:var(--color-text-secondary);border-bottom:2px solid transparent;transition:all .15s;}
+.tab.active{color:var(--color-text-primary);border-bottom:2px solid var(--color-text-primary);font-weight:500;}
+.tab:hover{color:var(--color-text-primary);}
+.panel{display:none;}.panel.active{display:block;}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;}
+.ok{background:#EAF3DE;color:#27500A;}
+.warn{background:#FAEEDA;color:#633806;}
+.err{background:#FCEBEB;color:#791F1F;}
+.missing{background:#EEEDFE;color:#3C3489;}
+.row{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13px;}
+.row:last-child{border-bottom:none;}
+.row-icon{min-width:20px;font-size:16px;}
+.row-label{font-weight:500;min-width:160px;flex-shrink:0;}
+.row-detail{color:var(--color-text-secondary);flex:1;line-height:1.5;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:12px;}
+.card-head{padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:0.5px solid var(--color-border-tertiary);}
+.card-body{padding:4px 0;}
+.section-tag{font-size:11px;padding:2px 6px;border-radius:4px;background:var(--color-background-secondary);color:var(--color-text-secondary);}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:1.2rem;}
+.metric{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;text-align:center;}
+.metric-n{font-size:24px;font-weight:500;}
+.metric-l{font-size:12px;color:var(--color-text-secondary);margin-top:2px;}
+.n-ok{color:#27500A;}.n-warn{color:#633806;}.n-err{color:#791F1F;}.n-miss{color:#3C3489;}
+.checklist-item{display:flex;align-items:flex-start;gap:8px;padding:6px 10px;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13px;}
+.checklist-item:last-child{border-bottom:none;}
+.ci-icon{min-width:18px;font-size:13px;}
+.ci-text{flex:1;line-height:1.5;}
+.ci-note{font-size:12px;color:var(--color-text-secondary);margin-top:2px;}
+</style>
+<div class="root">
+<h1>Auditoria Completa — Futebas Redesign vs Projeto Base</h1>
+<p class="sub">futemax-fixed (base funcional) vs stitch_futebas_redesign_specifications</p>
+
+<div class="summary-grid">
+  <div class="metric"><div class="metric-n n-ok">11</div><div class="metric-l">telas OK (parcial)</div></div>
+  <div class="metric"><div class="metric-n n-warn">18</div><div class="metric-l">telas ausentes no design</div></div>
+  <div class="metric"><div class="metric-n n-err">6</div><div class="metric-l">problemas críticos</div></div>
+  <div class="metric"><div class="metric-n n-miss">9</div><div class="metric-l">elementos extras a remover</div></div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="show('mapeamento')">1. Mapeamento de Telas</button>
+  <button class="tab" onclick="show('auditoria')">2. Auditoria por Tela</button>
+  <button class="tab" onclick="show('funcionalidades')">3. Funcionalidades Críticas</button>
+  <button class="tab" onclick="show('sistema')">4. Configurações & Sistema</button>
+  <button class="tab" onclick="show('padronizacao')">5. Padronização</button>
+  <button class="tab" onclick="show('criticos')">6. Problemas que Quebram Backend</button>
+  <button class="tab" onclick="show('relatorio')">7. Relatório Final</button>
+  <button class="tab" onclick="show('checklist')">8. Checklist Final</button>
+</div>
+
+<div id="pane-mapeamento" class="panel active">
+<h2>Mapeamento Completo de Telas</h2>
+<div class="card">
+  <div class="card-head"><span class="badge missing">BASE</span><strong>Projeto Base (futemax-fixed) — 25 telas</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">📁</span><span class="row-label">AUTH (6 telas)</span><span class="row-detail">WelcomeScreen · LoginScreen · ForgotPasswordScreen · RegisterInfoScreen · RegisterPhotoScreen · RegisterFinishScreen</span></div>
+    <div class="row"><span class="row-icon">📁</span><span class="row-label">HOME (1 tela)</span><span class="row-detail">HomeScreen</span></div>
+    <div class="row"><span class="row-icon">📁</span><span class="row-label">GROUPS (3 telas)</span><span class="row-detail">GroupsListScreen · CreateGroupScreen · JoinByInviteScreen</span></div>
+    <div class="row"><span class="row-icon">📁</span><span class="row-label">GROUP DETAIL (5 telas)</span><span class="row-detail">GroupDetailScreen · GroupMembersScreen · PlayerProfileScreen · GroupLocationsScreen · GroupSettingsScreen</span></div>
+    <div class="row"><span class="row-icon">📁</span><span class="row-label">GAMES (8 telas)</span><span class="row-detail">GroupGamesScreen · GroupGameHistoryScreen · CreateGameScreen · GameDetailScreen · ParticipantsScreen · TeamsScreen · GameTimerScreen · ResultScreen · GameStatsScreen</span></div>
+    <div class="row"><span class="row-icon">📁</span><span class="row-label">STATS (1 tela)</span><span class="row-detail">GroupStatsScreen</span></div>
+    <div class="row"><span class="row-icon">📁</span><span class="row-label">PROFILE (4 telas)</span><span class="row-detail">MyProfileScreen · EditProfileScreen · MatchHistoryScreen · SettingsScreen · ChangePasswordScreen</span></div>
+    <div class="row"><span class="row-icon">📁</span><span class="row-label">LOCATIONS (2 telas)</span><span class="row-detail">CreateLocationScreen · EditLocationScreen</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="badge ok">DESIGN</span><strong>Projeto Novo (Stitch) — 10 telas</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="badge ok">✓</span><span class="row-label">welcome_screen</span><span class="row-detail">Corresponde à WelcomeScreen</span></div>
+    <div class="row"><span class="badge ok">✓</span><span class="row-label">login_screen</span><span class="row-detail">Corresponde à LoginScreen</span></div>
+    <div class="row"><span class="badge ok">✓</span><span class="row-label">home_screen</span><span class="row-detail">Corresponde à HomeScreen</span></div>
+    <div class="row"><span class="badge ok">✓</span><span class="row-label">group_detail_hub</span><span class="row-detail">Corresponde à GroupDetailScreen</span></div>
+    <div class="row"><span class="badge warn">~</span><span class="row-label">game_detail_hub_1</span><span class="row-detail">Corresponde à GameDetailScreen (versão 1)</span></div>
+    <div class="row"><span class="badge warn">~</span><span class="row-label">game_detail_hub_2</span><span class="row-detail">Duplicata da GameDetailScreen (versão 2) — redundante</span></div>
+    <div class="row"><span class="badge warn">~</span><span class="row-label">match_timer</span><span class="row-detail">Corresponde parcialmente à GameTimerScreen</span></div>
+    <div class="row"><span class="badge warn">~</span><span class="row-label">game_timer</span><span class="row-detail">Duplicata do cronômetro — versão 2, redundante</span></div>
+    <div class="row"><span class="badge ok">✓</span><span class="row-label">group_stats_rankings</span><span class="row-detail">Corresponde à GroupStatsScreen</span></div>
+    <div class="row"><span class="badge ok">✓</span><span class="row-label">my_fifa_style_profile</span><span class="row-detail">Corresponde à MyProfileScreen</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="badge err">FALTANDO</span><strong>Telas do base SEM design — 15 telas ausentes</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">ForgotPasswordScreen</span><span class="row-detail">Recuperação de senha — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">RegisterInfoScreen</span><span class="row-detail">Cadastro passo 1 (dados + posição + pé) — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">RegisterPhotoScreen</span><span class="row-detail">Cadastro passo 2 (foto) — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">RegisterFinishScreen</span><span class="row-detail">Cadastro passo 3 (confirmação) — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">GroupsListScreen</span><span class="row-detail">Lista de grupos do usuário — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">CreateGroupScreen</span><span class="row-detail">Criação de grupo (nome, tipo, descrição) — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">JoinByInviteScreen</span><span class="row-detail">Entrar por código de convite — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">GroupGamesScreen</span><span class="row-detail">Lista de jogos do grupo — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">GroupGameHistoryScreen</span><span class="row-detail">Histórico de jogos — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">CreateGameScreen</span><span class="row-detail">Criar jogo (tipo, data, local, times) — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">ParticipantsScreen</span><span class="row-detail">Confirmar participantes — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">TeamsScreen</span><span class="row-detail">Sorteio/formação de times — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">ResultScreen</span><span class="row-detail">Resultado do jogo — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">GameStatsScreen</span><span class="row-detail">Stats individuais de uma partida — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">GroupMembersScreen</span><span class="row-detail">Lista de membros do grupo — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">PlayerProfileScreen</span><span class="row-detail">Perfil de outro jogador no grupo — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">GroupLocationsScreen</span><span class="row-detail">Lista de locais — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">CreateLocationScreen</span><span class="row-detail">Criar local — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">EditLocationScreen</span><span class="row-detail">Editar local — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">GroupSettingsScreen</span><span class="row-detail">Configurações do grupo (convite, kick, tipo) — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">EditProfileScreen</span><span class="row-detail">Editar perfil — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">MatchHistoryScreen</span><span class="row-detail">Histórico de partidas do usuário — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">SettingsScreen</span><span class="row-detail">Configurações (tema, logout, senha) — sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">ChangePasswordScreen</span><span class="row-detail">Alterar senha — sem design</span></div>
+  </div>
+</div>
+</div>
+
+<div id="pane-auditoria" class="panel">
+<h2>Auditoria Elemento-por-Elemento — Cada Tela</h2>
+
+<div class="card">
+  <div class="card-head"><span class="badge ok">✓ COM DESIGN</span><strong>welcome_screen → WelcomeScreen</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Logo FUTEBAS</span><span class="row-detail">Presente com ícone soccer + texto FUTE/BAS. Animação de entrada ausente no HTML (ok para referência)</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Taglines (ORGANIZE/JOGUE/EVOLUA)</span><span class="row-detail">Presentes, maiúsculas, Barlow Condensed Black</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Subtítulo descritivo</span><span class="row-detail">Presente — texto maior e mais descritivo que o base</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Botão ENTRAR</span><span class="row-detail">Presente como CTA primário</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Botão CRIAR CONTA</span><span class="row-detail">AUSENTE — o base tem 2 botões. O design tem apenas 1. Rota para cadastro bloqueada na Welcome</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Decoração de fundo</span><span class="row-detail">Design usa blur-glow (proibido no sistema de design do base). Usar círculos vetoriais como no base</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Bento grid (desktop)</span><span class="row-detail">Elemento extra — não existe no base mobile. Remover ou marcar como "somente web"</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Imagem de fundo externa</span><span class="row-detail">Usa lh3.googleusercontent.com — não carregará em produção sem autenticação. Substituir por asset local</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="badge warn">⚠️ PARCIAL</span><strong>login_screen → LoginScreen</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Botão voltar (←)</span><span class="row-detail">Presente como arrow_back icon</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Input de email</span><span class="row-detail">Presente com ícone e label uppercase</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Input de senha</span><span class="row-detail">Presente</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Link "Forgot password?"</span><span class="row-detail">Presente — porém em inglês. Deve ser "Esqueceu sua senha?"</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Botão ENTRAR (primário)</span><span class="row-detail">Presente</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Exibição de erro inline</span><span class="row-detail">AUSENTE — base tem errorBox com mensagem de erro abaixo dos inputs. Design não tem área de erro</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Link "Criar conta" (footer)</span><span class="row-detail">AUSENTE — base tem rodapé "Não tem conta? Criar conta". Design não tem</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Estado de loading no botão</span><span class="row-detail">AUSENTE — sem spinner no botão durante loading</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Imagem de fundo (estádio)</span><span class="row-detail">Usa URL externa de imagem que não carregará em produção</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Label do email em inglês</span><span class="row-detail">"Email address" e "Password" — tudo deve ser em PT-BR</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Eyebrow "ACCESS THE PITCH"</span><span class="row-detail">Elemento extra decorativo em inglês — remover ou substituir por "BEM-VINDO DE VOLTA"</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Toggle "mostrar/ocultar senha"</span><span class="row-detail">Não presente no design (ícone para mostrar senha não implementado)</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="badge warn">⚠️ PARCIAL</span><strong>home_screen → HomeScreen</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">TopBar com saudação</span><span class="row-detail">Presente: "Olá, Ricardo" com ícone FB</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Seção "Próximo Jogo" (hero card)</span><span class="row-detail">Presente com data, nome, localização. Estrutura bate com o base</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Botão "Ver Detalhes" no jogo</span><span class="row-detail">Presente</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Seção "Meus Grupos"</span><span class="row-detail">Presente como lista de grupos</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Localização no card de jogo</span><span class="row-detail">Presente com ícone location</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Horário do jogo</span><span class="row-detail">AUSENTE — base mostra formatTime(). Apenas a data, não a hora</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Tipo do jogo (Rachão, etc.)</span><span class="row-detail">AUSENTE — base mostra game.type</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Estado vazio "Nenhum jogo agendado"</span><span class="row-detail">AUSENTE — design só mostra estado preenchido</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Estado vazio "Criar primeiro grupo"</span><span class="row-detail">AUSENTE — base tem emptyCard clicável</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Indicador isAdmin no grupo</span><span class="row-detail">AUSENTE — base mostra adminDot (ponto verde para admin)</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Badge "Ver todos" nos grupos</span><span class="row-detail">AUSENTE — quando há grupos, base tem link "Ver todos"</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Seção Stats Overview</span><span class="row-detail">EXTRA — design tem cards de stats pessoais na home. Base não tem isso na home</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Bottom Navigation Bar</span><span class="row-detail">AUSENTE no HTML — base tem Tab Navigator com INÍCIO/GRUPOS/PERFIL. Adicionar no design</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="badge warn">⚠️ PARCIAL</span><strong>group_detail_hub → GroupDetailScreen</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Botão voltar (←)</span><span class="row-detail">Presente como arrow_back</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Nome do grupo no header</span><span class="row-detail">Presente</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Badge ADMIN</span><span class="row-detail">Presente para usuário admin</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Contagem de membros</span><span class="row-detail">Presente (24 members)</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Botão "Schedule Match" (Criar Jogo)</span><span class="row-detail">Presente, equivale ao CreateGame</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Botão "Share Link" (Convite)</span><span class="row-detail">Presente, funcionalidade de compartilhar código</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Seção de navegação (Bento Grid)</span><span class="row-detail">Presente com cards para as seções</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Card "Jogos"</span><span class="row-detail">Base navega para GroupGames. Bento grid não identifica claramente todos os 5 destinos do base</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Card "Locais"</span><span class="row-detail">AUSENTE no bento grid — base tem GroupLocations como seção</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Card "Configurações"</span><span class="row-detail">AUSENTE — base tem GroupSettings como destino direto</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Tipo do grupo</span><span class="row-detail">Design mostra "Competitive" (hard-coded) ao invés de Pelada/Time do base</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Notificações (bell icon)</span><span class="row-detail">EXTRA — feature não existe no backend base. Remover ou implementar</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Avatar do usuário no header</span><span class="row-detail">EXTRA — usa imagem externa. No base não aparece avatar aqui</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="badge warn">⚠️ PARCIAL</span><strong>game_detail_hub_1 & _2 → GameDetailScreen (duplicado)</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Dois designs para mesma tela</span><span class="row-detail">game_detail_hub_1 e game_detail_hub_2 são versões diferentes da mesma GameDetailScreen. Escolher UMA</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Data e horário</span><span class="row-detail">Presente em ambas as versões</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Local do jogo</span><span class="row-detail">Presente com endereço</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Status do jogo (AGENDADO)</span><span class="row-detail">Presente como badge</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Cards de seções (Participantes, Times)</span><span class="row-detail">Presente no hub_1 como bento grid</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Botão "Cancelar Jogo" (admin)</span><span class="row-detail">AUSENTE — base tem ação de cancelamento para admins</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Botão "Iniciar Timer"</span><span class="row-detail">AUSENTE como ação direta — base navega para GameTimer daqui</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Estado "Jogo Finalizado"</span><span class="row-detail">AUSENTE — base diferencia status: agendado/em andamento/finalizado/cancelado</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Card de Resultado</span><span class="row-detail">AUSENTE — quando jogo finalizado, base mostra resultado</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Card de Histórico de Partida</span><span class="row-detail">AUSENTE — GameStats não está no bento grid</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="badge warn">⚠️ PARCIAL</span><strong>match_timer & game_timer → GameTimerScreen (duplicado)</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Dois designs para mesma tela</span><span class="row-detail">match_timer e game_timer são variações do GameTimerScreen. Escolher UMA</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Display do cronômetro (MM:SS)</span><span class="row-detail">Presente e visualmente forte</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Botão INICIAR</span><span class="row-detail">Presente</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Card de confronto (Time A vs Time B)</span><span class="row-detail">Presente com escudos e placar</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Botão PAUSAR</span><span class="row-detail">AUSENTE — base tem estado pause. Design só mostra INICIAR</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Botão RESETAR/PARAR</span><span class="row-detail">AUSENTE — base tem controle completo stop/reset</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Input de minutos/segundos (configurar timer)</span><span class="row-detail">AUSENTE — base tem campos inputMin e inputSec para configurar duração</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Seletor de Regra de Rotação</span><span class="row-detail">AUSENTE — base tem loser_out / winner_stays_2max / fixed_rotation</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Lista de sessões (histórico de rounds)</span><span class="row-detail">AUSENTE — base registra cada sessão do timer (TimerSession[])</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Indicador de times na fila (waiting)</span><span class="row-detail">AUSENTE — base mostra activeTeams e waitingTeams</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Botão de configurações (ícone ⚙)</span><span class="row-detail">Presente no match_timer mas sem ação definida</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="badge ok">✓ BOM</span><strong>group_stats_rankings → GroupStatsScreen</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Abas de categoria (Artilharia/Assistências/Participação)</span><span class="row-detail">Presente e correto</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Filtros de período (Tudo/30 dias/90 dias)</span><span class="row-detail">Presente — base tem StatsRange</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Lista de ranking com posição</span><span class="row-detail">Presente com card hero para #1</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Avatar do jogador</span><span class="row-detail">Presente</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Número de gols/assistências</span><span class="row-detail">Presente</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Média por jogo (avg_goals_per_game)</span><span class="row-detail">AUSENTE — base exibe média além do total</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Estado vazio (sem stats)</span><span class="row-detail">AUSENTE — sem EmptyState quando não há dados</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Nome do grupo hardcoded</span><span class="row-detail">"LIGA DOS CAMPEÕES DA VILA" — deve ser dinâmico</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="badge warn">⚠️ PARCIAL</span><strong>my_fifa_style_profile → MyProfileScreen</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Rating visual (estilo FIFA)</span><span class="row-detail">Inovação interessante — pode substituir as stats boxes do base</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Nome e nickname</span><span class="row-detail">Presente</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Stats (gols, assistências, jogos)</span><span class="row-detail">Presente como atributos da card FIFA</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Posição do jogador</span><span class="row-detail">Presente (ST = Atacante)</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Botão "Editar Perfil"</span><span class="row-detail">AUSENTE — sem acesso a EditProfileScreen</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Botão "Configurações"</span><span class="row-detail">AUSENTE — sem acesso a SettingsScreen</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Botão "Histórico de Partidas"</span><span class="row-detail">AUSENTE — sem acesso a MatchHistoryScreen</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Cidade e estado (city, state)</span><span class="row-detail">AUSENTE — base exibe localização do jogador</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Pé dominante</span><span class="row-detail">AUSENTE — base exibe dominant_foot</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">ThemeToggle (dark/light)</span><span class="row-detail">AUSENTE — base tem toggle de tema na tela de perfil</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Imagem do jogador (foto real)</span><span class="row-detail">Design usa imagem stock. No app real usa photo_url do usuário</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Rating "88" hardcoded</span><span class="row-detail">Rating não existe no backend — não há coluna de rating. Mapear para stats reais ou remover</span></div>
+  </div>
+</div>
+</div>
+
+<div id="pane-funcionalidades" class="panel">
+<h2>Funcionalidades Críticas — Análise de Implementabilidade</h2>
+<div class="card">
+  <div class="card-head"><strong>Login / Cadastro / Auth</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Login</span><span class="row-detail">Design existe mas falta: área de erro, estado de loading, link p/ cadastro</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Cadastro (3 passos)</span><span class="row-detail">ZERO design. RegisterInfo/Photo/Finish sem nenhuma tela no stitch. Backend Supabase não poderá ser ativado</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Recuperação de senha</span><span class="row-detail">Sem design. ForgotPasswordScreen ausente. Link presente no login mas sem destino visual</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><strong>Integração com Supabase — CRUD</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">CREATE — Criar Grupo</span><span class="row-detail">CreateGroupScreen sem design. Formulário (nome, tipo, descrição) não existe</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">CREATE — Criar Jogo</span><span class="row-detail">CreateGameScreen sem design. Campos: título, tipo, data, hora, local, times_count, regra de rotação</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">CREATE — Criar Local</span><span class="row-detail">CreateLocationScreen sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">UPDATE — Editar Perfil</span><span class="row-detail">EditProfileScreen sem design. Campos: nome, apelido, cidade, estado, posição, pé</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">UPDATE — Editar Local</span><span class="row-detail">EditLocationScreen sem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">DELETE — Cancelar Jogo</span><span class="row-detail">Botão ausente na GameDetailScreen do design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">READ — Lista de Grupos</span><span class="row-detail">GroupsListScreen sem design (aba GRUPOS da nav bar)</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">READ — Lista de Jogos do Grupo</span><span class="row-detail">GroupGamesScreen sem design</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><strong>Navegação entre Telas</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Bottom Tab Navigator</span><span class="row-detail">CRÍTICO — nenhuma tela do design tem a barra de tabs (INÍCIO/GRUPOS/PERFIL). É a espinha dorsal da navegação</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Fluxo de cadastro (steps 1→2→3)</span><span class="row-detail">Sem design para os 3 passos. Usuário não consegue criar conta</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Botão voltar</span><span class="row-detail">Presente na maioria das telas. Correto</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><strong>Estados de UI (Loading / Erro / Vazio)</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Estado Loading</span><span class="row-detail">AUSENTE em todas as telas do design. Nenhuma tela mostra spinner/skeleton</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Estado de Erro</span><span class="row-detail">AUSENTE. Nenhuma tela mostra mensagem de erro ou EmptyState com retry</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Estado Vazio</span><span class="row-detail">AUSENTE. Todas as telas mostram dados preenchidos. EmptyState não foi desenhado para nenhuma tela</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Feedback de sucesso</span><span class="row-detail">AUSENTE. Após criar grupo, criar jogo, etc — sem toast/alert de sucesso</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><strong>Permissões (Admin vs Membro)</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Badge ADMIN</span><span class="row-detail">Presente no group_detail_hub. Correto</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Ações exclusivas de admin</span><span class="row-detail">Botões de cancelar jogo, gerenciar membros, e configurações do grupo não distinguem admin vs membro no design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">GroupSettingsScreen</span><span class="row-detail">Sem design. Funcionalidades admin: código de convite, kick member, editar grupo</span></div>
+  </div>
+</div>
+</div>
+
+<div id="pane-sistema" class="panel">
+<h2>Configurações & Sistema</h2>
+<div class="card">
+  <div class="card-head"><strong>Telas de Sistema</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">SettingsScreen</span><span class="row-detail">COMPLETAMENTE AUSENTE. Base tem: toggle dark/light, alterar senha, versão do app, logout</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">ChangePasswordScreen</span><span class="row-detail">AUSENTE. Campo para senha atual + nova senha</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Logout</span><span class="row-detail">AUSENTE no design. Nenhuma tela tem botão de sair da conta</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Seletor Dark/Light Mode</span><span class="row-detail">AUSENTE. Base tem ThemeToggle. Design é 100% dark-only sem toggle</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Versão do app</span><span class="row-detail">AUSENTE. Base exibe Constants.expoConfig?.version</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><strong>Perfil do Usuário</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">EditProfileScreen</span><span class="row-detail">AUSENTE. Campos: nome completo, apelido, cidade, UF, posição preferida, pé dominante, foto</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Trocar foto de perfil</span><span class="row-detail">AUSENTE. Fluxo de upload de imagem não tem design</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">MatchHistoryScreen</span><span class="row-detail">AUSENTE. Lista de jogos que o usuário participou</span></div>
+  </div>
+</div>
+</div>
+
+<div id="pane-padronizacao" class="panel">
+<h2>Padronização Visual</h2>
+<div class="card">
+  <div class="card-head"><strong>Consistência — Problemas encontrados</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Primary color inconsistente</span><span class="row-detail">welcome_screen usa #00E87A, outros usam #3cff8d. São dois verdes diferentes. Padronizar em #00E87A como no design system</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Idioma misto</span><span class="row-detail">login_screen tem "Email address", "Password", "ACCESS THE PITCH" em inglês. App é PT-BR</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Nome do app no header inconsistente</span><span class="row-detail">group_stats/game_timer/profile mostram "STADIUM PULSE" — nome interno do design system. Deve ser "FUTEBAS"</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Botões — radius inconsistente</span><span class="row-detail">Algumas telas usam rounded-xl (12px correto), outras usam rounded-lg (8px) ou rounded-full (errado)</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Imagens externas (Google CDN)</span><span class="row-detail">Múltiplas telas usam lh3.googleusercontent.com. Em produção essas URLs não funcionarão. Substituir por assets ou placeholders</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Bordas 1px em algumas telas</span><span class="row-detail">Design system proíbe 1px solid borders (No-Line Rule). game_detail_hub_2 tem border-l-4 (ok) mas também borders sutis em cards</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Tipografia</span><span class="row-detail">Barlow + Barlow Condensed aplicados corretamente em todas as telas</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Hierarquia de superfícies</span><span class="row-detail">background → surface-container-low → surface-container bem aplicado</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Ícones Material Symbols</span><span class="row-detail">Uso consistente de Material Symbols Outlined em todas as telas</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Corner radius de cards (18px hero / 16px padrão)</span><span class="row-detail">Consistente com o design system</span></div>
+  </div>
+</div>
+</div>
+
+<div id="pane-criticos" class="panel">
+<h2>Problemas que Quebram o Backend</h2>
+<div class="card">
+  <div class="card-head"><strong>Crítico — Bloqueadores de Implementação</strong></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">🔴</span><span class="row-label">Sem fluxo de cadastro</span><span class="row-detail">RegisterInfo/Photo/Finish ausentes. O backend Supabase cria perfil com name, nickname, city, state, preferredPosition, dominantFoot, photoUrl — sem a tela esses campos não têm como ser coletados</span></div>
+    <div class="row"><span class="row-icon">🔴</span><span class="row-label">Sem Tab Bar global</span><span class="row-detail">A navegação principal (INÍCIO/GRUPOS/PERFIL) não existe em nenhuma tela. Implementador não sabe como construir a estrutura raiz do app</span></div>
+    <div class="row"><span class="row-icon">🔴</span><span class="row-label">Timer sem controles essenciais</span><span class="row-detail">GameTimerScreen precisa de: input de duração, PAUSAR, PARAR, seletor de rotationRule, lista de sessões. Sem esses, a lógica de timerService é inimplementável pelo design</span></div>
+    <div class="row"><span class="row-icon">🔴</span><span class="row-label">CreateGame sem design</span><span class="row-detail">CreateGameScreen tem os campos mais complexos do app: tipo de jogo (Rachão/Resenha/etc), teamsCount, rotationRule, data/hora, localId. Sem design, implementador inventará o layout</span></div>
+    <div class="row"><span class="row-icon">🔴</span><span class="row-label">ParticipantsScreen ausente</span><span class="row-detail">Confirmar presença dos jogadores (confirmar/recusar) é operação crítica do fluxo. Sem design</span></div>
+    <div class="row"><span class="row-icon">🔴</span><span class="row-label">TeamsScreen ausente</span><span class="row-detail">Sorteio de times é funcionalidade core do app. Sem design para o fluxo de sorteio automático/manual</span></div>
+    <div class="row"><span class="row-icon">🔴</span><span class="row-label">Rating "88" não existe no banco</span><span class="row-detail">FIFA card mostra rating 88 mas não há coluna de rating no schema Supabase. Pode gerar confusão na implementação. Remover ou mapear para stat real (ex: média de gols)</span></div>
+    <div class="row"><span class="row-icon">🔴</span><span class="row-label">Sem estados de loading/erro em nenhuma tela</span><span class="row-detail">Implementador precisará inventar como mostrar loading e erro em cada tela individualmente. Design deve especificar skeleton screens ou spinner patterns</span></div>
+    <div class="row"><span class="row-icon">🔴</span><span class="row-label">Sem tela de Settings/Logout</span><span class="row-detail">Logout é funcionalidade de auth essencial. Sem SettingsScreen, usuário fica preso na conta</span></div>
+    <div class="row"><span class="row-icon">🟡</span><span class="row-label">Dois designs duplicados para mesma tela</span><span class="row-detail">game_detail_hub_1 e _2 / match_timer e game_timer — geram ambiguidade. Implementador não sabe qual seguir</span></div>
+  </div>
+</div>
+</div>
+
+<div id="pane-relatorio" class="panel">
+<h2>Relatório Final</h2>
+<div class="card">
+  <div class="card-head"><span class="badge ok">✅ OK — Pode usar sem alterações</span></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Design System Base</span><span class="row-detail">Cores, tipografia, raio de borda, hierarquia de superfícies, ícones — excelente</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">group_stats_rankings</span><span class="row-detail">Melhor tela do stitch. Abas, filtros, ranking com card hero para #1. Adicionar apenas: média por jogo e estado vazio</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Conceito do hero card (home_screen)</span><span class="row-detail">Card do próximo jogo com strip verde + data + título é excelente visualmente</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">FIFA card concept (profile)</span><span class="row-detail">Conceito visual inovador e compatível com os dados do backend (gols, assistências, jogos, posição)</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">group_detail_hub — estrutura geral</span><span class="row-detail">Header com nome + badge ADMIN + contagem de membros + botões de ação primária</span></div>
+    <div class="row"><span class="row-icon">✅</span><span class="row-label">Timer display (MM:SS em 120px)</span><span class="row-detail">Visual do cronômetro é excepcional. Implementar com os controles que faltam</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="badge warn">⚠️ AJUSTAR — Corrigir antes de implementar</span></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">welcome_screen</span><span class="row-detail">Adicionar botão "CRIAR CONTA" secundário. Remover bento grid desktop (app é mobile)</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">login_screen</span><span class="row-detail">Traduzir para PT-BR. Adicionar: área de erro inline, link "Criar conta", estado loading no botão</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">home_screen</span><span class="row-detail">Adicionar: horário do jogo, tipo do jogo, estados vazios, badge isAdmin, link "Ver todos". Adicionar Tab Bar</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">group_detail_hub</span><span class="row-detail">Adicionar cards: Locais, Configurações. Remover notificações (não existe no backend). Tipo dinâmico</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">game_detail_hub (escolher 1)</span><span class="row-detail">Mesclar as 2 versões em 1. Adicionar: cancelar jogo, iniciar timer, estados por status do jogo</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">game_timer/match_timer (escolher 1)</span><span class="row-detail">Adicionar: PAUSAR, PARAR, input de duração, seletor de rotação, lista de sessões, fila de times</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">my_fifa_style_profile</span><span class="row-detail">Adicionar: botões Editar/Config/Histórico. Remover rating "88" (não existe). Adicionar cidade/pé/ThemeToggle</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Cor primary inconsistente</span><span class="row-detail">Padronizar TODAS as telas para #00E87A</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Nome "STADIUM PULSE" nos headers</span><span class="row-detail">Substituir por "FUTEBAS" em todos os headers</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Imagens externas (Google CDN)</span><span class="row-detail">Substituir por assets locais ou placeholders SVG</span></div>
+    <div class="row"><span class="row-icon">⚠️</span><span class="row-label">Estados loading/erro/vazio</span><span class="row-detail">Criar design system para skeleton screens e EmptyState. Aplicar em TODAS as telas</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="badge err">❌ REMOVER — Não existe no projeto base</span></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Bento grid desktop (welcome)</span><span class="row-detail">App é mobile-only. Remover seção lg:grid</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Notificações (bell icon)</span><span class="row-detail">Feature não implementada no backend. Remover ícone notifications de todas as telas</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Stats pessoais na HomeScreen</span><span class="row-detail">Seção "Stats Overview" da home não existe no base. Remover ou propor ao PO</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Rating FIFA "88"</span><span class="row-detail">Coluna não existe no banco Supabase. Remover número ou mapear para avg_goals</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Chip "Live Now" (welcome)</span><span class="row-detail">Feature de live não existe no app. Remover</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">game_detail_hub_2 (duplicata)</span><span class="row-detail">Escolher apenas uma versão do GameDetail. Descartar a outra</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">game_timer OU match_timer (duplicata)</span><span class="row-detail">Escolher apenas uma versão do Timer. Descartar a outra</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">Imagens stock de jogadores reais</span><span class="row-detail">Usar avatars gerados por initial ou placeholder. Imagens externas não carregarão</span></div>
+    <div class="row"><span class="row-icon">❌</span><span class="row-label">"Live Match Scheduled" chip animado</span><span class="row-detail">Pulse animation em contexto de jogo agendado é incorreto. Live = em andamento</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><span class="badge missing">🆕 CRIAR — Telas novas obrigatórias</span></div>
+  <div class="card-body">
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">RegisterInfoScreen</span><span class="row-detail">Campos: nome, apelido, email, senha, cidade, UF, posição (dropdown), pé dominante (dropdown). Passos 1 de 3</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">RegisterPhotoScreen</span><span class="row-detail">Upload de foto circular com câmera/galeria. Passo 2 de 3. Botão "Pular"</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">RegisterFinishScreen</span><span class="row-detail">Card resumo dos dados + botão "CRIAR MINHA CONTA". Passo 3 de 3</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">ForgotPasswordScreen</span><span class="row-detail">Input email + botão "ENVIAR LINK" + estado de sucesso pós-envio</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">GroupsListScreen</span><span class="row-detail">FlatList de grupos com: nome, N membros, próximo jogo, badge admin, botões Criar/Entrar por convite</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">CreateGroupScreen</span><span class="row-detail">Input nome + input descrição + selector tipo (Pelada/Time) + botão criar</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">JoinByInviteScreen</span><span class="row-detail">Input código/link + botão ENTRAR + hint sobre onde achar o código</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">GroupGamesScreen</span><span class="row-detail">Lista de jogos: agendados, em andamento, finalizados/cancelados com filtros</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">CreateGameScreen</span><span class="row-detail">Campos: título, tipo de jogo, data/hora, local (picker), N de times, regra de rotação, duração do timer</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">ParticipantsScreen</span><span class="row-detail">Lista de membros com toggle confirmar/recusar. Contador de confirmados. Botão de fechar inscrições (admin)</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">TeamsScreen</span><span class="row-detail">Botão sortear times + visualização dos times formados + edição manual</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">ResultScreen</span><span class="row-detail">Placar final por time + MVP da partida + botão salvar resultado</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">GameStatsScreen</span><span class="row-detail">Stats individuais da partida: gols e assistências por jogador</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">GroupMembersScreen</span><span class="row-detail">Lista de membros com avatar, nome, badge admin. Pressionar → PlayerProfileScreen</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">GroupLocationsScreen</span><span class="row-detail">Lista de locais cadastrados. Botão criar local (admin)</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">GroupSettingsScreen</span><span class="row-detail">Código de convite (copiável), editar grupo, gerenciar membros, excluir grupo (admin)</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">EditProfileScreen</span><span class="row-detail">Mesmos campos do RegisterInfo + upload de foto + botão salvar</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">SettingsScreen</span><span class="row-detail">Toggle dark/light, link alterar senha, versão do app, botão SAIR DA CONTA</span></div>
+    <div class="row"><span class="row-icon">🆕</span><span class="row-label">Bottom Tab Navigator</span><span class="row-detail">Componente global: tabs INÍCIO/GRUPOS/PERFIL com ícones e dot indicator no ativo</span></div>
+  </div>
+</div>
+</div>
+
+<div id="pane-checklist" class="panel">
+<h2>Checklist Final de Implementação</h2>
+<div class="card">
+  <div class="card-head"><strong>Telas</strong></div>
+  <div class="card-body">
+    <div class="checklist-item"><span class="ci-icon">✅</span><div><div class="ci-text">WelcomeScreen tem design</div><div class="ci-note">Ajustar: adicionar 2º botão CRIAR CONTA</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">⚠️</span><div><div class="ci-text">LoginScreen tem design (incompleto)</div><div class="ci-note">Falta: erro inline, link criar conta, loading state, PT-BR</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">ForgotPasswordScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">RegisterInfoScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">RegisterPhotoScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">RegisterFinishScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">⚠️</span><div><div class="ci-text">HomeScreen tem design (incompleto)</div><div class="ci-note">Falta: horário, tipo do jogo, estados vazios, tab bar</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">GroupsListScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">CreateGroupScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">JoinByInviteScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">⚠️</span><div><div class="ci-text">GroupDetailScreen tem design (incompleto)</div><div class="ci-note">Falta: cards de Locais e Configurações</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">GroupGamesScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">CreateGameScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">⚠️</span><div><div class="ci-text">GameDetailScreen tem design (incompleto)</div><div class="ci-note">Falta: cancelar jogo, estados por status, resultado</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">ParticipantsScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">TeamsScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">⚠️</span><div><div class="ci-text">GameTimerScreen tem design (incompleto)</div><div class="ci-note">Falta: pausar, parar, input duração, rotação, sessões</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">ResultScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">GameStatsScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">GroupMembersScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">✅</span><div><div class="ci-text">GroupStatsScreen tem design (bom)</div><div class="ci-note">Ajustar: média/jogo e estado vazio</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">GroupLocationsScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">GroupSettingsScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">⚠️</span><div><div class="ci-text">MyProfileScreen tem design (incompleto)</div><div class="ci-note">Falta: botões Editar/Config/Histórico, cidade, pé, rating inválido</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">EditProfileScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">MatchHistoryScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">SettingsScreen SEM design</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">ChangePasswordScreen SEM design</div></div></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head"><strong>Elementos Essenciais</strong></div>
+  <div class="card-body">
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Bottom Tab Navigator tem design</div><div class="ci-note">CRÍTICO — ausente em todas as telas</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Todos os botões de ação do admin existem</div><div class="ci-note">Cancelar jogo, gerenciar membros, código de convite</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Botão CRIAR CONTA na WelcomeScreen</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Botão LOGOUT em alguma tela</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Estados de Loading desenhados</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Estados de Erro desenhados</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Estados Vazios (EmptyState) desenhados</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Primary color #00E87A consistente em todas as telas</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Texto 100% em PT-BR</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Nenhuma imagem de CDN externo</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Nome "STADIUM PULSE" removido, substituído por "FUTEBAS"</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Rating "88" removido ou mapeado para dado real</div></div></div>
+    <div class="checklist-item"><span class="ci-icon">❌</span><div><div class="ci-text">Backend pode ser implementado 100% com o design atual</div><div class="ci-note">NÃO — faltam 18+ telas e elementos críticos</div></div></div>
+  </div>
+</div>
+</div>
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('pane-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
