@@ -15,13 +15,14 @@ export function Hero({ theme }: HeroProps) {
               Mizael Landreis
             </h1>
             <h2 className="text-2xl md:text-3xl text-green-500">
-              Desenvolvedor Backend em formação
+              Estudante de Engenharia de Software | Backend Java
             </h2>
           </div>
 
           <p className={`text-lg leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-            Desenvolvedor backend em formação, focado em Python, automação e resolução de problemas.
-            Construindo sistemas práticos e evoluindo constantemente com projetos reais.
+            Estudando Engenharia de Software e me especializando em desenvolvimento Backend com Java e
+            Spring Boot. Venho da área de diagnóstico eletromecânico e eletrônico de veículos pesados,
+            trazendo raciocínio lógico e capacidade de resolução de problemas para a tecnologia.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4">

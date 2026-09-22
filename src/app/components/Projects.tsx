@@ -31,6 +31,13 @@ export function Projects({ theme }: ProjectsProps) {
 
   const webProjects = [
     {
+      name: 'MecanicaSistem',
+      description: 'Sistema de gestão para oficina mecânica especializada em caminhões: clientes, veículos, ordens de serviço, peças, estoque, notas fiscais (NFe/NFCe) e controle financeiro. Conecta minha experiência profissional em diagnóstico de caminhões com desenvolvimento de software.',
+      demo: null,
+      github: null,
+      featured: true
+    },
+    {
       name: 'Sistema de CRUD de Produtos com Flask',
       description: 'Aplicação web desenvolvida com Flask para gerenciamento completo de produtos, incluindo criação, leitura, atualização e exclusão (CRUD). Backend em Python com banco de dados integrado.',
       demo: 'https://sistema-de-crud-de-produtos-com-flask.onrender.com',

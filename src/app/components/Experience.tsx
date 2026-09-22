@@ -6,10 +6,12 @@ interface ExperienceProps {
 
 export function Experience({ theme }: ExperienceProps) {
   const highlights = [
-    'Diagnóstico e resolução de problemas técnicos',
-    'Suporte técnico e manutenção de sistemas',
-    'Raciocínio lógico aplicado no ambiente profissional',
-    'Comunicação com clientes e documentação de soluções'
+    'Diagnóstico de sistemas elétricos e eletrônicos de caminhões',
+    'Identificação de falhas elétricas, eletrônicas e em sensores',
+    'Análise de chicotes elétricos e circuitos',
+    'Diagnóstico e reparo de módulos eletrônicos',
+    'Trabalho com sistemas de veículos DAF',
+    'Raciocínio lógico e atenção aos detalhes aplicados ao diagnóstico técnico'
   ];
 
   return (
@@ -31,22 +33,23 @@ export function Experience({ theme }: ExperienceProps) {
               </div>
               <div className="flex-1">
                 <h3 className={`text-xl mb-1 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                  Suporte Técnico e Manutenção de Sistemas
+                  Eletromecânico
                 </h3>
                 <p className={`text-sm mb-1 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Experiência prática
+                  FERTRONIC Diagnósticos Diesel
                 </p>
                 <div className={`flex items-center gap-2 text-sm ${theme === 'dark' ? 'text-gray-500' : 'text-gray-500'}`}>
                   <Calendar size={14} />
-                  <span>2020 – 2024</span>
+                  <span>Desde fevereiro de 2025</span>
                 </div>
               </div>
             </div>
 
             <p className={`mb-6 leading-relaxed mt-4 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-              Atuei com resolução de problemas técnicos, diagnóstico de sistemas e suporte,
-              desenvolvendo raciocínio lógico e capacidade de análise que hoje aplico diretamente
-              no desenvolvimento de software.
+              Atuo com diagnóstico técnico de sistemas elétricos e eletrônicos de veículos pesados,
+              identificando falhas, analisando circuitos e reparando módulos eletrônicos. Essa
+              experiência prática em diagnóstico e resolução de problemas é a base que estou levando
+              para o desenvolvimento de software.
             </p>
 
             <div className="grid md:grid-cols-2 gap-3">

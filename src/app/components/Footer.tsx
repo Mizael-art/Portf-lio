@@ -14,7 +14,7 @@ export function Footer({ theme }: FooterProps) {
               Mizael Landreis
             </h3>
             <p className="text-gray-400">
-              Desenvolvedor Backend em formação
+              Estudante de Engenharia de Software | Backend Java
             </p>
             <a
               href="mailto:mizaellandreis2016@gmail.com"

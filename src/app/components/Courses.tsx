@@ -5,7 +5,22 @@ interface CoursesProps {
 }
 
 export function Courses({ theme }: CoursesProps) {
-  const courses = [
+  const courses: { name: string; hours: number | null; institution: string | null }[] = [
+    {
+      name: 'Santander Bootcamp Java',
+      hours: null,
+      institution: 'Santander Open Academy'
+    },
+    {
+      name: 'Santander Bootcamp Java Backend Completo',
+      hours: null,
+      institution: 'Santander Open Academy'
+    },
+    {
+      name: 'Santander Bootcamp Java + AI / Copilot',
+      hours: null,
+      institution: 'Santander Open Academy'
+    },
     {
       name: 'Power BI',
       hours: 8,
@@ -76,10 +91,12 @@ export function Courses({ theme }: CoursesProps) {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 text-green-500 text-sm">
-                <Clock size={16} />
-                <span>{course.hours}h de carga horária</span>
-              </div>
+              {course.hours && (
+                <div className="flex items-center gap-2 text-green-500 text-sm">
+                  <Clock size={16} />
+                  <span>{course.hours}h de carga horária</span>
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -9,22 +9,22 @@ export function Skills({ theme }: SkillsProps) {
     {
       icon: Code,
       title: 'Backend',
-      skills: ['Python (Intermediário)', 'Lógica de Programação', 'APIs REST (em aprendizado)']
+      skills: ['Java (Básico/Intermediário) — foco principal', 'Spring Boot (em estudo)', 'Python (Intermediário)', 'APIs REST']
     },
     {
       icon: Database,
       title: 'Dados',
-      skills: ['SQL (em aprendizado)', 'JSON', 'Power BI']
+      skills: ['SQL', 'PostgreSQL', 'Supabase', 'Power BI']
     },
     {
       icon: Wrench,
-      title: 'Ferramentas',
-      skills: ['Git', 'GitHub', 'VS Code']
+      title: 'Web & Ferramentas',
+      skills: ['React / Next.js', 'TypeScript / JavaScript', 'HTML / CSS / Tailwind', 'Git, GitHub e Vercel']
     },
     {
       icon: Sparkles,
       title: 'Diferenciais',
-      skills: ['Automação com Python', 'Inteligência Artificial aplicada', 'Gemini e outras ferramentas IA']
+      skills: ['Diagnóstico e resolução de problemas técnicos', 'Raciocínio lógico aplicado', 'Automação com Python', 'IA aplicada (Gemini, Copilot)']
     }
   ];
 

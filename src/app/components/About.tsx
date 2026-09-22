@@ -27,10 +27,10 @@ export function About({ theme }: AboutProps) {
                   Transição de Carreira
                 </h3>
                 <p className={`leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-                  Em transição para a área de tecnologia, estou focado em me tornar um desenvolvedor
-                  backend sólido e confiável. Minha jornada começou com Python e desde então venho
-                  me dedicando intensamente ao aprendizado de lógica de programação, desenvolvimento
-                  de APIs e boas práticas de desenvolvimento.
+                  Formação técnica em Informática, atualmente cursando Engenharia de Software e
+                  trabalhando profissionalmente com diagnóstico eletromecânico e eletrônico de veículos
+                  pesados. Estou direcionando minha carreira para desenvolvimento de software, com foco
+                  em Java e Backend, enquanto desenvolvo projetos próprios utilizando tecnologias modernas.
                 </p>
               </div>
             </div>
@@ -51,8 +51,8 @@ export function About({ theme }: AboutProps) {
                 </h3>
               </div>
               <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
-                Desenvolvimento de sistemas backend com Python, aprendizado de SQL e
-                construção de APIs RESTful.
+                Desenvolvimento Backend com Java e Spring Boot, aprofundando Orientação a Objetos,
+                SQL e construção de APIs RESTful.
               </p>
             </div>
 
@@ -70,8 +70,8 @@ export function About({ theme }: AboutProps) {
                 </h3>
               </div>
               <p className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
-                Consolidar conhecimentos em backend e contribuir em projetos que façam
-                diferença, evoluindo constantemente como profissional.
+                Conseguir minha primeira oportunidade em desenvolvimento — estágio ou vaga júnior em
+                Java/Backend — e evoluir constantemente como profissional.
               </p>
             </div>
           </div>
