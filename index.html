@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mizael Landreis — Data Analyst | Data Analytics & Business Intelligence</title>
+  <meta name="description" content="Portfólio de Mizael Landreis, estudante de Engenharia de Software em transição para Data Analytics e Business Intelligence. SQL, Power BI, Excel e Python. Ponta Grossa – PR." />
+  <meta name="theme-color" content="#0F172A" />
+  <meta property="og:title" content="Mizael Landreis — Data Analyst | Data Analytics & BI" />
+  <meta property="og:description" content="Transformando dados em informações que ajudam a entender problemas, identificar oportunidades e tomar decisões melhores." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo">Mizael<span class="dot">.</span>data</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Início</a></li>
+        <li><a href="#about">Sobre mim</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#projects">Projetos</a></li>
+        <li><a href="#experience">Experiência</a></li>
+        <li><a href="#education">Formação</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Olá, eu sou</p>
+      <h1 class="hero-name reveal">Mizael <span class="accent">Landreis</span></h1>
+      <h2 class="hero-title reveal">Data Analyst <span class="sep">|</span> Data Analytics &amp; Business Intelligence</h2>
+      <p class="hero-quote reveal">
+        Transformando dados em informações que ajudam a entender problemas, identificar oportunidades e tomar decisões melhores.
+      </p>
+      <p class="hero-desc reveal">
+        <span class="tag-pill">SQL</span>
+        <span class="tag-pill">Power BI</span>
+        <span class="tag-pill">Excel</span>
+        <span class="tag-pill">Python</span>
+      </p>
+      <div class="hero-cta reveal">
+        <a href="#projects" class="btn btn-primary">Conheça meus projetos</a>
+        <a href="#contact" class="btn btn-ghost">Entre em contato</a>
+        <a href="curriculo-mizael-landreis.pdf" class="btn btn-ghost" download>
+          <svg class="btn-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Baixar currículo
+        </a>
+      </div>
+      <ul class="hero-meta reveal">
+        <li>Ponta Grossa – PR, Brasil</li>
+        <li>Engenharia de Software · Unicesumar</li>
+        <li>Aberto a estágio e vagas júnior em Dados/BI</li>
+      </ul>
+    </div>
+
+    <!-- Painel ilustrativo (sem dados reais) -->
+    <div class="hero-visual reveal" aria-hidden="true">
+      <div class="dash">
+        <div class="dash-head">
+          <span class="dash-avatar">ML</span>
+          <span class="dash-title">Painel ilustrativo</span>
+          <span class="dash-live"></span>
+        </div>
+        <div class="dash-kpis">
+          <div class="dash-kpi"><i></i><b></b></div>
+          <div class="dash-kpi"><i></i><b></b></div>
+          <div class="dash-kpi"><i></i><b></b></div>
+        </div>
+        <div class="dash-chart">
+          <div class="bar" style="height:42%"></div>
+          <div class="bar" style="height:64%"></div>
+          <div class="bar" style="height:50%"></div>
+          <div class="bar" style="height:82%"></div>
+          <div class="bar" style="height:68%"></div>
+          <div class="bar" style="height:94%"></div>
+          <svg class="dash-line" viewBox="0 0 200 70" preserveAspectRatio="none">
+            <polyline points="0,52 36,40 72,46 108,24 144,32 200,8" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </div>
+      <div class="floating-badge b1">SQL</div>
+      <div class="floating-badge b2">Power BI</div>
+      <div class="floating-badge b3">Python</div>
+    </div>
+    <div class="scroll-indicator"><span></span></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about section-pad">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Sobre mim</span>
+        <h2>Da oficina aos <span class="accent">dados</span></h2>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-story reveal">
+          <p>Sou estudante de Engenharia de Software, Técnico em Informática e profissional com experiência em diagnóstico eletroeletrônico. Hoje estou direcionando minha carreira para <strong>Análise de Dados e Business Intelligence</strong>.</p>
+          <p>Comecei na tecnologia pelo desenvolvimento de software, principalmente backend com Java e Spring Boot. Foi construindo aplicações que percebi do que mais gosto: trabalhar com informação, investigar problemas, encontrar padrões e organizar dados de um jeito que ajude alguém a decidir melhor.</p>
+          <p>Na FERTRONIC, trabalho todos os dias investigando falhas em veículos pesados até chegar à causa real, e é essa mesma forma de pensar que levo para os dados. Meus conhecimentos de programação, bancos de dados, APIs e automação não ficaram para trás: são o que me permite ir além da planilha e do dashboard.</p>
+          <p>Por isso estou desenvolvendo SQL, Power BI, Excel e Python. Tenho interesse em transformar dados em informações úteis, criar dashboards, automatizar processos e resolver problemas reais com tecnologia. Gosto de aprender fazendo, desenvolvendo projetos e aplicando o que estudo.</p>
+        </div>
+
+        <aside class="about-snapshot reveal" style="--delay:0.1s">
+          <h3>Resumo rápido</h3>
+          <dl>
+            <div><dt>Foco atual</dt><dd>Data Analytics &amp; Business Intelligence</dd></div>
+            <div><dt>Formação</dt><dd>Engenharia de Software (Unicesumar, 2026–2030) e Técnico em Informática (concluído em 2024)</dd></div>
+            <div><dt>Experiência</dt><dd>Eletromecânico — FERTRONIC Diagnósticos Diesel (desde fev/2025)</dd></div>
+            <div><dt>Estudando</dt><dd>SQL · Power BI · Excel · Python</dd></div>
+            <div><dt>Busco</dt><dd>Estágio ou vaga júnior em Dados/BI</dd></div>
+            <div><dt>Local</dt><dd>Ponta Grossa – PR, Brasil</dd></div>
+          </dl>
+        </aside>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <div class="about-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <h3>Base técnica</h3>
+          <p>Engenharia de Software e Técnico em Informática: <strong>lógica, bancos de dados e programação</strong> como fundamento.</p>
+        </div>
+        <div class="about-card reveal" style="--delay:0.1s">
+          <div class="about-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+          <h3>Olhar investigativo</h3>
+          <p>Anos de diagnóstico de falhas me ensinaram a <strong>investigar até a causa</strong> e a desconfiar de dados inconsistentes.</p>
+        </div>
+        <div class="about-card reveal" style="--delay:0.2s">
+          <div class="about-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6" rx="0.5"/><rect x="12" y="8" width="3" height="10" rx="0.5"/><rect x="17" y="5" width="3" height="13" rx="0.5"/></svg></div>
+          <h3>Foco em dados</h3>
+          <p>Organizar, tratar e visualizar informações para <strong>apoiar decisões</strong>, com SQL, Power BI, Excel e Python.</p>
+        </div>
+        <div class="about-card reveal" style="--delay:0.3s">
+          <div class="about-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Diferencial dev</h3>
+          <p>Conheço <strong>APIs, automação e desenvolvimento</strong>, o que ajuda a conectar fontes de dados e automatizar processos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="skills section-pad">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Habilidades</span>
+        <h2>Minha caixa de <span class="accent">ferramentas</span></h2>
+        <p class="section-sub">As barras indicam meu nível de familiaridade atual com cada ferramenta, não tempo de experiência profissional.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <!-- Data Analytics -->
+        <div class="skill-group reveal">
+          <div class="skill-group-header">
+            <span class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></span>
+            Data Analytics
+          </div>
+          <ul class="skill-list">
+            <li>Análise e organização de dados</li>
+            <li>Tratamento e limpeza de dados</li>
+            <li>Interpretação de informações</li>
+            <li>Identificação de padrões e inconsistências</li>
+          </ul>
+        </div>
+
+        <!-- Ferramentas -->
+        <div class="skill-group skill-group-wide reveal" style="--delay:0.1s">
+          <div class="skill-group-header">
+            <span class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.6-.6-.6-2.6z"/></svg></span>
+            Ferramentas
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info"><span>SQL</span><span class="skill-level">Fundamentos</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-w="50"></div></div>
+            <p class="skill-note">SELECT, WHERE, JOIN, GROUP BY, ORDER BY e CRUD</p>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span>Excel</span><span class="skill-level">Intermediário</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-w="62"></div></div>
+            <p class="skill-note">PROCV, PROCH, CONT.SE, SOMASE, SE e tabelas dinâmicas</p>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span>Python</span><span class="skill-level">Fundamentos</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-w="45"></div></div>
+            <p class="skill-note">Fundamentos, scripts de automação e tratamento de dados</p>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span>Power BI</span><span class="skill-level">Introdutório</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-w="30"></div></div>
+            <p class="skill-note">Dashboards, KPIs, filtros, visualizações e Power Query</p>
+          </div>
+        </div>
+
+        <!-- Complementares -->
+        <div class="skill-group reveal" style="--delay:0.2s">
+          <div class="skill-group-header">
+            <span class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
+            Tecnologias complementares
+          </div>
+          <div class="chip-list">
+            <span>MySQL</span>
+            <span>phpMyAdmin</span>
+            <span>Git &amp; GitHub</span>
+            <span>APIs REST</span>
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>Integração entre sistemas</span>
+            <span>Automação</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects section-pad">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Projetos</span>
+        <h2>Projetos <span class="accent">práticos</span></h2>
+        <p class="section-sub">Projetos pessoais em que organizo informações, estruturo dados e conecto sistemas.</p>
+      </div>
+      <div class="projects-grid">
+
+        <!-- FinFinance -->
+        <div class="project-card reveal">
+          <div class="project-thumb finance-thumb">
+            <div class="project-mock">
+              <div class="mock-header">
+                <span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span>
+              </div>
+              <div class="mock-body">
+                <div class="mock-chart">
+                  <div class="bar" style="height:60%"></div>
+                  <div class="bar" style="height:80%"></div>
+                  <div class="bar" style="height:45%"></div>
+                  <div class="bar" style="height:90%"></div>
+                  <div class="bar" style="height:70%"></div>
+                  <div class="bar" style="height:55%"></div>
+                </div>
+                <div class="mock-stats">
+                  <div class="mock-stat"><span>Receitas</span><small>ilustração</small></div>
+                  <div class="mock-stat"><span>Despesas</span><small>ilustração</small></div>
+                  <div class="mock-stat"><span>Saldo</span><small>ilustração</small></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-overlay"><span class="project-tag">Web / PWA</span></div>
+          </div>
+          <div class="project-info">
+            <span class="project-kicker">Projeto pessoal</span>
+            <h3>FinFinance</h3>
+            <p>Aplicação web/PWA de gestão financeira pessoal. Organiza contas, despesas, cartões e demais informações financeiras em telas de acompanhamento e relatórios.</p>
+            <ul class="project-points">
+              <li>Estruturação e organização dos dados financeiros</li>
+              <li>Visualização de informações em telas e relatórios</li>
+              <li>Armazenamento local com IndexedDB e suporte ao uso offline, publicado no GitHub Pages</li>
+            </ul>
+            <div class="project-tags">
+              <span>PWA</span><span>IndexedDB</span><span>Offline</span><span>GitHub Pages</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Mizael-art/appFinFinance" target="_blank" rel="noopener" class="plink plink-primary">GitHub ↗</a>
+              <a href="https://mizael-art.github.io/FinFinancesBr/" target="_blank" rel="noopener" class="plink plink-ghost">Ver app ↗</a>
+              <a href="https://finfinance-landing.vercel.app" target="_blank" rel="noopener" class="plink plink-ghost">Landing ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Automação via API de corretora -->
+        <div class="project-card reveal" style="--delay:0.1s">
+          <div class="project-thumb api-thumb">
+            <div class="flow" aria-hidden="true">
+              <div class="flow-node"><b>Conta</b><small>autorização</small></div>
+              <div class="flow-arrow"></div>
+              <div class="flow-node flow-node-main"><b>API</b><small>corretora</small></div>
+              <div class="flow-arrow"></div>
+              <div class="flow-node"><b>Ordens</b><small>automação</small></div>
+            </div>
+            <div class="project-overlay"><span class="project-tag">API / Automação</span></div>
+          </div>
+          <div class="project-info">
+            <span class="project-kicker">Projeto pessoal</span>
+            <h3>Automação de ordens via API de corretora</h3>
+            <p>Integração com a API de uma corretora para automatizar o envio de ordens após a conexão e a autorização da conta.</p>
+            <ul class="project-points">
+              <li>Integração entre sistemas e consumo de APIs</li>
+              <li>Autenticação e autorização</li>
+              <li>Automação de processos</li>
+            </ul>
+            <div class="project-tags">
+              <span>APIs REST</span><span>Autenticação</span><span>Automação</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Em desenvolvimento -->
+        <div class="project-card project-card-soon reveal" style="--delay:0.2s">
+          <div class="project-thumb soon-thumb">
+            <div class="soon-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6" rx="0.5"/><rect x="12" y="8" width="3" height="10" rx="0.5"/><rect x="17" y="5" width="3" height="13" rx="0.5"/></svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-kicker project-kicker-soon">Em desenvolvimento</span>
+            <h3>Projeto de análise de dados</h3>
+            <p>Estou preparando meu primeiro projeto completo de análise de dados: base pública, consultas em SQL, tratamento de dados e dashboard em Power BI, documentado com o problema, as decisões e as conclusões. Ele será publicado aqui quando estiver pronto.</p>
+            <div class="project-tags">
+              <span>SQL</span><span>Power BI</span><span>Excel</span><span>Python</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="experience section-pad">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Experiência profissional</span>
+        <h2>Raciocínio <span class="accent">analítico</span> na prática</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <div class="timeline-top">
+              <div>
+                <h3>Eletromecânico</h3>
+                <p class="timeline-company">FERTRONIC Diagnósticos Diesel</p>
+              </div>
+              <span class="timeline-date">Fev/2025 – Atual</span>
+            </div>
+            <p class="timeline-text">Diagnóstico de sistemas elétricos e eletrônicos de veículos pesados: investigação de falhas, análise de sensores, chicotes, módulos e sinais eletrônicos, realização de testes e resolução de problemas técnicos.</p>
+            <p class="timeline-text">O trabalho exige partir de um sintoma, levantar hipóteses, medir, interpretar os resultados e confirmar a causa antes de agir. É a mesma lógica de investigar uma inconsistência em um conjunto de dados.</p>
+
+            <h4 class="timeline-sub">O que levo dessa experiência para a área de dados</h4>
+            <div class="skill-map">
+              <div class="skill-map-item"><b>Investigação estruturada</b><span>Seguir um problema até a causa, não só até o sintoma.</span></div>
+              <div class="skill-map-item"><b>Análise de sinais e informações</b><span>Ler medições de sensores e módulos e extrair o que importa.</span></div>
+              <div class="skill-map-item"><b>Identificação de inconsistências</b><span>Perceber o que foge do comportamento esperado.</span></div>
+              <div class="skill-map-item"><b>Interpretação de resultados</b><span>Transformar o resultado de testes em uma conclusão confiável.</span></div>
+              <div class="skill-map-item"><b>Raciocínio lógico</b><span>Eliminar hipóteses de forma sistemática.</span></div>
+              <div class="skill-map-item"><b>Resolução de problemas e atenção aos detalhes</b><span>Validar o funcionamento depois da intervenção.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="education section-pad">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Formação e cursos</span>
+        <h2>Formação e <span class="accent">cursos</span></h2>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-col">
+          <h3 class="edu-heading">Formação acadêmica</h3>
+          <div class="edu-card reveal">
+            <span class="edu-date">2026 – 2030 (previsão)</span>
+            <h4>Engenharia de Software</h4>
+            <p>Unicesumar · em andamento</p>
+          </div>
+          <div class="edu-card reveal" style="--delay:0.1s">
+            <span class="edu-date">Concluído em 2024 · 4 anos</span>
+            <h4>Técnico em Informática integrado ao Ensino Médio</h4>
+            <p>Colégio Estadual Presidente Kennedy · programação, lógica, bancos de dados e planilhas eletrônicas</p>
+          </div>
+        </div>
+
+        <div class="edu-col">
+          <h3 class="edu-heading">Cursos e capacitações</h3>
+          <div class="edu-card reveal">
+            <span class="edu-date">2026 · 8 horas</span>
+            <h4>Power BI</h4>
+            <p>Fundamentos da ferramenta, visualizações e criação de dashboards</p>
+          </div>
+          <div class="edu-card reveal" style="--delay:0.1s">
+            <span class="edu-date">Santander Open Academy</span>
+            <h4>Excel, Python e dados</h4>
+            <p>Excel intermediário-avançado, introdução ao Python, pensamento crítico, proteção de dados e IA com Gemini</p>
+          </div>
+          <div class="edu-card reveal" style="--delay:0.15s">
+            <span class="edu-date">Em andamento</span>
+            <h4>Santander Bootcamp Java</h4>
+            <p>Java, orientação a objetos e fundamentos de backend com Spring Boot</p>
+          </div>
+          <div class="edu-card reveal" style="--delay:0.2s">
+            <span class="edu-date">16 horas</span>
+            <h4>Designer de Impacto</h4>
+          </div>
+        </div>
+      </div>
+
+      <p class="edu-lang reveal">Idiomas: Português (nativo) · Inglês (básico)</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact section-pad">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Contato</span>
+        <h2>Vamos <span class="accent">conversar</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="contact-lead">Está com uma vaga de estágio ou analista júnior em Dados/BI, ou quer trocar uma ideia sobre dados? Fico feliz em conversar.</p>
+          <div class="social-links">
+            <a href="mailto:mizaellandreis2016@gmail.com" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              mizaellandreis2016@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/mizael-landreis-06b6a039b/" target="_blank" rel="noopener" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn — Mizael Landreis
+            </a>
+            <a href="https://github.com/Mizael-art" target="_blank" rel="noopener" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.921.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              GitHub — Mizael-art
+            </a>
+            <a href="curriculo-mizael-landreis.pdf" class="social-btn" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar currículo (PDF)
+            </a>
+          </div>
+        </div>
+        <div class="contact-form reveal" style="--delay:0.15s">
+          <div class="form-group">
+            <label for="f-name">Nome</label>
+            <input id="f-name" type="text" placeholder="Seu nome completo" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="f-email">Email</label>
+            <input id="f-email" type="email" placeholder="seu@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="f-msg">Mensagem</label>
+            <textarea id="f-msg" rows="5" placeholder="Conte sobre a oportunidade ou o assunto..."></textarea>
+          </div>
+          <button class="btn btn-primary full-width" onclick="handleSend()">Enviar Mensagem →</button>
+          <div id="formMsg" class="form-msg hidden">Abrimos o seu aplicativo de e-mail com a mensagem pronta. Basta enviar!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 <span class="accent">Mizael Landreis</span> — Data Analytics &amp; Business Intelligence · Ponta Grossa, PR</p>
+    </div>
+  </footer>
+
+  <!-- MODAL (visualizador de imagens, reutilizável para prints de projetos) -->
+  <div id="modal-overlay" class="modal-overlay" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">✕</button>
+      <img id="modal-img" src="" alt="" />
+      <p id="modal-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
